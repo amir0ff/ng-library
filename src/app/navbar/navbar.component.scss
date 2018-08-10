@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #1f1f1f;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  .logo {
+    height: 32px;
+    width: 42px;
+    margin: 0 4px 0 8px;
+    outline: none;
+    cursor: pointer;
+  }
+  .navbar-brand {
+    font-weight: 500;
+    color: #ececec;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-collapse {
+    .btn {
+      margin-left: 12px;
+      margin-top: 12px;
+    }
+  }
+}

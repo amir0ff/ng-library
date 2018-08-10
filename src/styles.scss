@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/bootstrap';
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+@import 'assets/styles/scrollbar';
+@include scrollbar(10px, #676262, #dcdcdc);
+
+.progress {
+  position: fixed;
+  width: 100%;
+  top: 56px;
+  border-radius: 0;
+}

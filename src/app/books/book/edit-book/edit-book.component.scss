@@ -1,0 +1,42 @@
+.date-input-group {
+  input {
+    padding-right: 52px;
+  }
+  .btn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+  }
+}
+
+#isbn-code {
+  &:hover {
+    cursor: help;
+  }
+}
+
+.ng-valid[required]:not(.ng-untouched), .ng-valid.required:not(.ng-untouched) {
+  border-left: 5px solid #28a745;
+}
+
+.ng-invalid:not(form):not(.ng-untouched) {
+  border-left: 5px solid #dc3545;
+}
+
+.invalid-form {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.alert-danger {
+  width: 15rem;
+  position: absolute;
+  opacity: 0;
+  &.showing {
+    position: static;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+}

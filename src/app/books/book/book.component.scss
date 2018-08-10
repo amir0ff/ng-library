@@ -1,0 +1,54 @@
+.card {
+  position: relative;
+  margin-top: 30px;
+  min-height: 448px;
+  min-width: 209px;
+  max-width: 209px;
+  .card-img-top {
+    transition: all .2s ease;
+    filter: grayscale(0%);
+  }
+  &:hover {
+    .card-img-top {
+      filter: grayscale(70%);
+    }
+    .btn-dark {
+      opacity: 1;
+    }
+    .btn-danger {
+      opacity: 1;
+    }
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 13px;
+  }
+  .card-img-top {
+    height: 16rem;
+    width: 13rem;
+  }
+  .btn-dark {
+    opacity: 0;
+    box-shadow: 3px 3px 5px -1px #424d59;
+    transition: opacity ease-in-out .2s;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    border-radius: 50%;
+    height: 42px;
+    width: 42px;
+  }
+  .btn-danger {
+    opacity: 0;
+    box-shadow: 3px 3px 5px -1px #424d59;
+    transition: opacity ease-in-out .2s;
+    position: absolute;
+    right: 4px;
+    top: 54px;
+    border-radius: 50%;
+    height: 42px;
+    width: 42px;
+  }
+}

@@ -1,0 +1,7 @@
+<ngb-progressbar *ngIf="bookLoading" type="info" height="10px" [value]="booksloadingProgress"></ngb-progressbar>
+<ng-container *ngIf="!bookLoading">
+  <app-book [booksList]="booksList" class="card-deck container-fluid"></app-book>
+  <!--Debugging the books list and edited books objects:-->
+  <!--<div><pre>{{editedBook | json}}</pre></div>-->
+  <!--<div><pre>{{booksList | json}}</pre></div>-->
+</ng-container>

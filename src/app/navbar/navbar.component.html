@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg shadow-sm">
+  <img routerLink="/" class="card-img-top logo" src="./assets/images/logo.svg" alt="Logo">
+  <a class="navbar-brand mr-4" routerLink="/">The Library</a>
+  <button class="btn btn-light d-lg-none" type="button" data-toggle="collapse" data-target="#navbar"
+          aria-controls="navbar" (click)="isNavCollapsed = !isNavCollapsed"
+          [attr.aria-expanded]="!isNavCollapsed" aria-label="Toggle navigation">
+    <fa name="bars"></fa>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar" [ngbCollapse]="isNavCollapsed">
+    <button class="btn btn-success" type="button" (click)="addBook()">
+      <fa class="mr-1" name="plus-square"></fa>
+      Add a book
+    </button>
+    <div class="ml-auto">
+      <button type="button" routerLink="/about" class="btn btn-light">About</button>
+    </div>
+  </div>
+</nav>

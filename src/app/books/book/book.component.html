@@ -1,0 +1,19 @@
+<div *ngFor="let book of booksList" class="shadow card">
+  <img class="card-img-top" src="{{book.cover}}" alt="Book cover">
+  <button type="button" title="Edit book" class="btn btn-dark" (click)="editBook(book)">
+    <fa name="edit"></fa>
+  </button>
+  <button type="button" title="Delete book" class="btn btn-danger" (click)="deleteBook(book)">
+    <fa name="trash"></fa>
+  </button>
+  <div class="card-body">
+    <h5 class="card-title">{{book.title}}</h5>
+    <h6 class="card-title">by <a href="#" class="card-link">{{book.author}}</a></h6>
+    <p class="card-text">
+      <small class="text-muted">ID: {{book.id}}</small>
+    </p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Published: {{book.publishDate | transformDate | date}}</small>
+  </div>
+</div>

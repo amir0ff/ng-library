@@ -1,0 +1,65 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add Book</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form #bookAddForm="ngForm" (ngSubmit)="onAddBook(bookAddForm)" novalidate>
+  <div class="modal-body">
+    <div class="form-group row">
+      <label for="newBookTitle" class="col-sm-2 col-form-label">Title:</label>
+      <div class="col">
+        <input type="text" id="newBookTitle" name="newBookTitle" class="form-control" placeholder="Title"
+               ngModel required #newBookTitle="ngModel">
+        <div class="invalid-form" *ngIf="newBookTitle.invalid && !newBookTitle.pristine">
+          Please choose a title.
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="newBookAuthor" class="col-sm-2 col-form-label">Author:</label>
+      <div class="col">
+        <input type="text" id="newBookAuthor" #newBookAuthor="ngModel" name="newBookAuthor" class="form-control"
+               placeholder="Author name" required ngModel>
+        <div class="invalid-form" *ngIf="newBookAuthor.invalid && !newBookAuthor.pristine">
+          Please choose a name.
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="newBookPublishDate" class="col-sm-2 col-form-label">Published</label>
+      <div class="col date-input-group">
+        <input id="newBookPublishDate" #newBookPublishDate="ngModel" name="newBookPublishDate" class="form-control"
+               ngModel required
+               ngbDatepicker #datePicker="ngbDatepicker" placeholder="Publish date"/>
+        <button class="btn btn-outline-info" (click)="datePicker.toggle()" type="button">
+          <fa name="calendar"></fa>
+        </button>
+        <div class="invalid-form" *ngIf="newBookPublishDate.invalid && !newBookPublishDate.pristine">
+          Please choose a date.
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="newBookId" class="col-sm-2 col-form-label">ID:</label>
+      <div class="col">
+        <!--ISBN numbers consist of 13 digits -->
+        <input type="text" id="newBookId" #newBookId="ngModel" maxlength="13" name="newBookId" class="form-control"
+               placeholder="ID" required ngModel>
+        <div class="invalid-form" *ngIf="newBookId.invalid && !newBookId.pristine">
+          Please choose an id.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mx-auto alert alert-danger" [ngClass]="{'showing': showFormError}" role="alert">
+    Form contains some errors!
+  </div>
+  <div class="mx-auto alert alert-warning" [ngClass]="{'showing': showDuplicateError}" role="alert">
+    A book with the same id or title already exists!
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-success">Save</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Cancel</button>
+  </div>
+</form>
