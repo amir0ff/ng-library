@@ -17,7 +17,7 @@ export class EditBookComponent {
   constructor(private bookService: BooksService, public activeModal: NgbActiveModal) {
   }
 
-  onEditBook(bookId: number, bookEditForm: NgForm) {
+  onEditBook(bookId, bookEditForm: NgForm) {
     if (bookEditForm.valid) {
       this.activeModal.dismiss();
       // console.log('Book edited:', 'id: ' + bookId, bookEditForm.value);
