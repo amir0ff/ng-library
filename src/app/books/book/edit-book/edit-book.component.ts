@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BooksService } from '../../books.service';
+import { Book } from '../book.model';
 
 @Component({
   selector: 'app-edit-book',
@@ -9,6 +10,7 @@ import { BooksService } from '../../books.service';
   styleUrls: ['./edit-book.component.scss']
 })
 export class EditBookComponent {
+  @Input() book: Book;
   showFormError = false;
 
   constructor(private bookService: BooksService, public activeModal: NgbActiveModal) {
