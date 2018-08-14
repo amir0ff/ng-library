@@ -15,7 +15,7 @@ export class BooksService {
     return this.http.get('./assets/data/books.json');
   }
 
-  editBook(editedBook) {
+  updateBook(editedBook) {
     // console.log('Edited books data received:', editedBook);
     this.editedBook.next(editedBook);
   }

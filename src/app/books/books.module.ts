@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { BooksComponent } from './books.component';
 import { BookComponent } from './book/book.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
-import { DeleteBookComponent } from './book/delete-book/delete-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -16,19 +15,18 @@ import { DateTransformPipe } from './utilities/dateTransform.pipe';
     BookComponent,
     EditBookComponent,
     AddBookComponent,
-    DateTransformPipe,
-    DeleteBookComponent
+    DateTransformPipe
   ],
   imports: [
     CommonModule,
     FormsModule,
     NgbModule.forRoot(),
-    AngularFontAwesomeModule,
+    AngularFontAwesomeModule
   ],
   exports: [
     BooksComponent
   ],
-  entryComponents: [EditBookComponent, AddBookComponent, DeleteBookComponent]
+  entryComponents: [EditBookComponent, AddBookComponent]
 })
 export class BooksModule {
 }

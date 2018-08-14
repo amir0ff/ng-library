@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./books.component.scss']
 })
 export class BooksComponent implements OnInit, OnDestroy {
-  booksList: Book[];
+  booksList: Book[] = [];
   bookLoading = true;
   booksloadingProgress = 0;
   editedBookSubscription: Subscription;
@@ -32,7 +32,7 @@ export class BooksComponent implements OnInit, OnDestroy {
       this.addBook(newBook);
     });
     this.deletedBookSubscription = this.bookService.deletedBook.subscribe(deletedBook => {
-      this.removeBook(deletedBook);
+      this.deleteBook(deletedBook);
     });
   }
 
@@ -53,7 +53,6 @@ export class BooksComponent implements OnInit, OnDestroy {
     });
   }
 
-
   updateBook(editedBook) {
     // Loop though existing books list
     for (let i = 0; i < this.booksList.length; i++) {
@@ -72,7 +71,7 @@ export class BooksComponent implements OnInit, OnDestroy {
     this.booksList.push(newBook);
   }
 
-  removeBook(deletedBook) {
+  deleteBook(deletedBook) {
     // Loop though existing books list
     for (let i = 0; i < this.booksList.length; i++) {
       // Match existing books with deleted one

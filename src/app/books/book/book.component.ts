@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EditBookComponent } from './edit-book/edit-book.component';
-import { DeleteBookComponent } from './delete-book/delete-book.component';
+import { BooksService } from '../books.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -10,14 +10,15 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BookComponent implements OnInit {
   @Input() booksList;
+  deleteBookModalRef: any;
 
-  constructor(private modalService: NgbModal) {
+  constructor(private modalService: NgbModal, private bookService: BooksService) {
   }
 
   ngOnInit() {
   }
 
-  editBook(selectedBook) {
+  onEditBook(selectedBook) {
     const editBookModalRef = this.modalService.open(EditBookComponent);
     editBookModalRef.componentInstance.book = {
       id: selectedBook.id,
@@ -27,12 +28,14 @@ export class BookComponent implements OnInit {
     };
   }
 
-  deleteBook(selectedBook) {
-    const deleteBookModalRef = this.modalService.open(DeleteBookComponent);
-    deleteBookModalRef.componentInstance.book = {
-      id: selectedBook.id,
-      title: selectedBook.title
-    };
+  onDeleteBook(deleteBookTempRef) {
+    this.deleteBookModalRef = this.modalService.open(deleteBookTempRef);
+  }
+
+  onConfirmDeleteBook(bookId: string) {
+    // console.log('Deleted books id:', bookId);
+    this.bookService.deleteBook(bookId);
+    this.deleteBookModalRef.close();
   }
 
 }

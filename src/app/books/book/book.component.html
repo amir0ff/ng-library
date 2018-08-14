@@ -1,9 +1,9 @@
 <div *ngFor="let book of booksList" class="shadow card">
   <img class="card-img-top" src="{{book.cover}}" alt="Book cover">
-  <button type="button" title="Edit book" class="btn btn-dark" (click)="editBook(book)">
+  <button type="button" title="Edit book" class="btn btn-dark" (click)="onEditBook(book)">
     <fa name="edit"></fa>
   </button>
-  <button type="button" title="Delete book" class="btn btn-danger" (click)="deleteBook(book)">
+  <button type="button" title="Delete book" class="btn btn-danger" (click)="onDeleteBook(deleteBookTempRef)">
     <fa name="trash"></fa>
   </button>
   <div class="card-body">
@@ -16,4 +16,19 @@
   <div class="card-footer">
     <small class="text-muted">Published: {{book.publishDate | transformDate | date}}</small>
   </div>
+  <ng-template #deleteBookTempRef>
+    <div class="modal-header">
+      <h4 class="modal-title">Delete Book</h4>
+      <button type="button" class="close" aria-label="Close" (click)="deleteBookModalRef.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <span>Are you sure you want to delete <strong>{{book.title}}</strong>?</span>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" (click)="onConfirmDeleteBook(book.id)">Confirm</button>
+      <button type="button" class="btn btn-danger" (click)="deleteBookModalRef.close()">Cancel</button>
+    </div>
+  </ng-template>
 </div>

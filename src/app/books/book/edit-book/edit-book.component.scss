@@ -32,11 +32,4 @@
 
 .alert-danger {
   width: 15rem;
-  position: absolute;
-  opacity: 0;
-  &.showing {
-    position: static;
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-  }
 }

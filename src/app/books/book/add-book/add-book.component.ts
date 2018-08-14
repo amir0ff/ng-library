@@ -11,7 +11,6 @@ import { Book } from '../book.model';
 })
 export class AddBookComponent implements OnInit {
   booksList: Book[];
-  newBook: object;
   showFormError = false;
   showDuplicateError = false;
 
@@ -28,7 +27,7 @@ export class AddBookComponent implements OnInit {
     });
   }
 
-  onAddBook(bookAddForm: NgForm) {
+  onSaveNewBook(bookAddForm: NgForm) {
     // Loop through books list and check for matching title and id number
     for (let i = 0; i < this.booksList.length; i++) {
       if (this.booksList[i].id === bookAddForm.value.newBookId || this.booksList[i].title === bookAddForm.value.newBookTitle) {
@@ -47,13 +46,12 @@ export class AddBookComponent implements OnInit {
       // "\w" for word characters "\s" for white space
       // Reference: https://www.w3schools.com/jsref/jsref_obj_regexp.asp
       const formattedTitle = bookAddForm.value.newBookTitle.replace(/[^\w\s]/gi, '');
-      this.newBook = {
+      this.bookService.addBook({
         id: bookAddForm.value.newBookId,
         title: formattedTitle,
         author: bookAddForm.value.newBookAuthor,
         publishDate: bookAddForm.value.newBookPublishDate
-      };
-      this.bookService.addBook(this.newBook);
+      });
     } else {
       this.showFormError = true;
       setTimeout(() => {

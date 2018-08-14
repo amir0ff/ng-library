@@ -1,10 +1,10 @@
 <div class="modal-header">
-  <h4 class="modal-title">Add Book</h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <h4 class="modal-title">Add a New Book</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<form #bookAddForm="ngForm" (ngSubmit)="onAddBook(bookAddForm)" novalidate>
+<form #bookAddForm="ngForm" (ngSubmit)="onSaveNewBook(bookAddForm)" novalidate>
   <div class="modal-body">
     <div class="form-group row">
       <label for="newBookTitle" class="col-sm-2 col-form-label">Title:</label>
@@ -52,14 +52,14 @@
       </div>
     </div>
   </div>
-  <div class="mx-auto alert alert-danger" [ngClass]="{'showing': showFormError}" role="alert">
+  <div class="mx-auto alert alert-danger" *ngIf="showFormError" role="alert">
     Form contains some errors!
   </div>
-  <div class="mx-auto alert alert-warning" [ngClass]="{'showing': showDuplicateError}" role="alert">
+  <div class="mx-auto alert alert-warning" *ngIf="showDuplicateError" role="alert">
     A book with the same id or title already exists!
   </div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-success">Save</button>
-    <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.close()">Cancel</button>
   </div>
 </form>

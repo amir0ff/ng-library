@@ -1,8 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BooksService } from '../../books.service';
-import { Book } from '../book.model';
 
 @Component({
   selector: 'app-edit-book',
@@ -10,24 +9,25 @@ import { Book } from '../book.model';
   styleUrls: ['./edit-book.component.scss']
 })
 export class EditBookComponent {
-  @Input() book: Book;
-  editedBook: object;
   showFormError = false;
 
   constructor(private bookService: BooksService, public activeModal: NgbActiveModal) {
   }
 
-  onEditBook(bookId, bookEditForm: NgForm) {
+  onSaveEditedBook(bookId, bookEditForm: NgForm) {
     if (bookEditForm.valid) {
-      this.activeModal.dismiss();
       // console.log('Book edited:', 'id: ' + bookId, bookEditForm.value);
-      this.editedBook = {
+      this.activeModal.dismiss();
+      // Remove all non-word and white space characters from the book title
+      // "\w" for word characters "\s" for white space
+      // Reference: https://www.w3schools.com/jsref/jsref_obj_regexp.asp
+      const formattedTitle = bookEditForm.value.bookTitle.replace(/[^\w\s]/gi, '');
+      this.bookService.updateBook({
         id: bookId,
-        title: bookEditForm.value.bookTitle,
+        title: formattedTitle,
         author: bookEditForm.value.bookAuthor,
         publishDate: bookEditForm.value.bookPublishDate
-      };
-      this.bookService.editBook(this.editedBook);
+      });
     } else {
       this.showFormError = true;
       setTimeout(() => {
