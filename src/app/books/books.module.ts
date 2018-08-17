@@ -5,6 +5,7 @@ import { BooksComponent } from './books.component';
 import { BookComponent } from './book/book.component';
 import { AddBookComponent } from './book/add-book/add-book.component';
 import { EditBookComponent } from './book/edit-book/edit-book.component';
+import { DeleteBookComponent } from './book/delete-book/delete-book.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DateTransformPipe } from './utilities/dateTransform.pipe';
@@ -15,7 +16,8 @@ import { DateTransformPipe } from './utilities/dateTransform.pipe';
     BookComponent,
     EditBookComponent,
     AddBookComponent,
-    DateTransformPipe
+    DateTransformPipe,
+    DeleteBookComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,7 @@ import { DateTransformPipe } from './utilities/dateTransform.pipe';
   exports: [
     BooksComponent
   ],
-  entryComponents: [EditBookComponent, AddBookComponent]
+  entryComponents: [EditBookComponent, AddBookComponent, DeleteBookComponent]
 })
 export class BooksModule {
 }

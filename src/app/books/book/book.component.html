@@ -3,7 +3,7 @@
   <button type="button" title="Edit book" class="btn btn-dark" (click)="onEditBook(book)">
     <fa name="edit"></fa>
   </button>
-  <button type="button" title="Delete book" class="btn btn-danger" (click)="onDeleteBook(deleteBookTempRef)">
+  <button type="button" title="Delete book" class="btn btn-danger" (click)="onDeleteBook(book)">
     <fa name="trash"></fa>
   </button>
   <div class="card-body">
@@ -16,19 +16,4 @@
   <div class="card-footer">
     <small class="text-muted">Published: {{book.publishDate | transformDate | date}}</small>
   </div>
-  <ng-template #deleteBookTempRef>
-    <div class="modal-header">
-      <h4 class="modal-title">Delete Book</h4>
-      <button type="button" class="close" aria-label="Close" (click)="deleteBookModalRef.dismiss()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <span>Are you sure you want to delete <strong>{{book.title}}</strong>?</span>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-success" (click)="onConfirmDeleteBook(book.id)">Confirm</button>
-      <button type="button" class="btn btn-danger" (click)="deleteBookModalRef.close()">Cancel</button>
-    </div>
-  </ng-template>
 </div>
