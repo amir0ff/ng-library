@@ -21,7 +21,7 @@ export class BooksComponent implements OnInit, OnDestroy {
 
   private interval = setInterval(() => {
     this.booksloadingProgress++;
-  }, 150);
+  }, 100);
 
   ngOnInit() {
     this.fetchBooks();
@@ -49,7 +49,7 @@ export class BooksComponent implements OnInit, OnDestroy {
         this.booksList = data['books'];
         clearInterval(this.interval);
         this.bookLoading = false;
-      }, 1500);
+      }, 1000);
     });
   }
 
