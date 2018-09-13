@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "the-library": {
+    "ng-library": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -36,7 +36,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/the-library",
+            "outputPath": "dist/ng-library",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "the-library:build"
+            "browserTarget": "ng-library:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "the-library:build:production"
+              "browserTarget": "ng-library:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "the-library:build"
+            "browserTarget": "ng-library:build"
           }
         },
         "test": {
@@ -118,7 +118,7 @@
         }
       }
     },
-    "the-library-e2e": {
+    "ng-library-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -126,7 +126,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "the-library:serve"
+            "devServerTarget": "ng-library:serve"
           }
         },
         "lint": {
@@ -141,5 +141,5 @@
       }
     }
   },
-  "defaultProject": "the-library"
+  "defaultProject": "ng-library"
 }

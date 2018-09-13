@@ -8,4 +8,4 @@ This is a simple library web app built on Google's Angular application platform
 
 #### Continuous Deployment by 🔷Netlify
 
-Live deployed app: [https://the-library.netlify.com](https://the-library.netlify.com)
+Live deployed app: [https://ng-library.netlify.com](https://ng-library.netlify.com)
