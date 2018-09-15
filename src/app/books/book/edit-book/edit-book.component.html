@@ -30,10 +30,10 @@
       <label for="bookPublishDate" class="col-sm-2 col-form-label">Published</label>
       <div class="col date-input-group">
         <input id="bookPublishDate" #bookPublishDate="ngModel" name="bookPublishDate" class="form-control"
-               [ngModel]="book.publishDate" required
+               [ngModel]="book.date" required
                ngbDatepicker #datePicker="ngbDatepicker" placeholder="Publish date"/>
         <!--Debugging the date value here:-->
-        <!--<pre>Model: {{ books.publishDate | json }}</pre>-->
+        <!--<pre>Model: {{ books.date | json }}</pre>-->
         <!--<pre>{{dateValue.status}}</pre>-->
         <button class="btn btn-outline-info" (click)="datePicker.toggle()" type="button">
           <fa name="calendar"></fa>

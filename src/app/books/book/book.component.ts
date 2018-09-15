@@ -23,7 +23,7 @@ export class BookComponent implements OnInit {
       id: selectedBook.id,
       title: selectedBook.title,
       author: selectedBook.author,
-      publishDate: selectedBook.publishDate
+      date: selectedBook.date
     };
   }
 

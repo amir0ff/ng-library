@@ -55,7 +55,10 @@
       <label for="newBookCover" class="col-sm-2 col-form-label">Cover:</label>
       <div class="col cover-input-group">
         <input type="file" id="newBookCover" name="newBookCover" class="form-control" required>
-        <button type="button" id="uploadBookCover" class="btn btn-info" (click)="getBookCover()">Upload</button>
+        <button type="button" class="btn btn-info" (click)="getBookCover()">
+          <span *ngIf="!newBookCover">Upload</span>
+          <fa name="check" *ngIf="newBookCover"></fa>
+        </button>
       </div>
     </div>
   </div>

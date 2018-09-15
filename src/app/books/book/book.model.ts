@@ -3,5 +3,5 @@ export interface Book {
   title: string;
   cover: string;
   author: number;
-  publishDate: object;
+  date: object;
 }

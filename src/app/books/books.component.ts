@@ -61,7 +61,7 @@ export class BooksComponent implements OnInit, OnDestroy {
         // Modify books's title, author name and publish date
         this.booksList[i].title = editedBook.title;
         this.booksList[i].author = editedBook.author;
-        this.booksList[i].publishDate = editedBook.publishDate;
+        this.booksList[i].date = editedBook.date;
         return;
       }
     }

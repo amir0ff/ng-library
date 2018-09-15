@@ -13,7 +13,7 @@ export class AddBookComponent implements OnInit {
   booksList: Book[];
   showFormError = false;
   showDuplicateError = false;
-  bookCover = null;
+  newBookCover = null;
 
   constructor(private bookService: BooksService, public activeModal: NgbActiveModal) {
   }
@@ -24,24 +24,19 @@ export class AddBookComponent implements OnInit {
 
   getBookCover() {
     // @ts-ignore
-    const files = document.querySelector('#newBookCover').files;
-    if (files.length > 0) {
-      this.convertToBase64(files[0]);
+    const file = document.querySelector('#newBookCover').files;
+    if (file.length > 0) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file[0]);
+      reader.onload = () => {
+        this.newBookCover = reader.result;
+        // console.log(reader.result);
+      };
+      reader.onerror = (error) => {
+        console.log('Error: ', error);
+      };
     }
   }
-
-  convertToBase64(bookCover) {
-    const reader = new FileReader();
-    reader.readAsDataURL(bookCover);
-    reader.onload = () => {
-      // console.log(reader.result);
-      this.bookCover = reader.result;
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
-  }
-
 
   fetchBooks() {
     this.bookService.getBooks().subscribe((data: Book) => {
@@ -61,8 +56,8 @@ export class AddBookComponent implements OnInit {
         return;
       }
     }
-    if (this.bookCover && bookAddForm.valid) {
-      // console.log('Book added:', bookAddForm.value, 'newBookCover:', this.bookCover);
+    if (this.newBookCover && bookAddForm.valid) {
+      // console.log('Book added:', bookAddForm.value, 'newBookCover:', this.newBookCover);
       this.activeModal.dismiss();
       // Remove all non-word and white space characters from the book title
       // "\w" for word characters "\s" for white space
@@ -72,8 +67,8 @@ export class AddBookComponent implements OnInit {
         id: bookAddForm.value.newBookId,
         title: formattedTitle,
         author: bookAddForm.value.newBookAuthor,
-        publishDate: bookAddForm.value.newBookPublishDate,
-        cover: this.bookCover
+        date: bookAddForm.value.newBookPublishDate,
+        cover: this.newBookCover
       });
     } else {
       this.showFormError = true;

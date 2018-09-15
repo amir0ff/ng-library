@@ -28,7 +28,7 @@ export class EditBookComponent {
         id: bookId,
         title: formattedTitle,
         author: bookEditForm.value.bookAuthor,
-        publishDate: bookEditForm.value.bookPublishDate
+        date: bookEditForm.value.bookPublishDate
       });
     } else {
       this.showFormError = true;
