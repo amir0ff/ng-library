@@ -30,12 +30,13 @@ export class AddBookComponent implements OnInit {
 
   getBookCover(event) {
     const fileReader = new FileReader();
-    const label = event.target.nextElementSibling;
     const [file] = event.target.files;
-    let fileName: string;
+    const label = event.target.nextElementSibling;
+    const labelVal = label.innerHTML;
     fileReader.readAsDataURL(file);
 
     if (event.target.files) {
+      let fileName: string;
       if (event.target.files.length === 1) {
         fileName = event.target.value.split('\\').pop();
       } else if (event.target.files.length > 1) {
@@ -43,6 +44,8 @@ export class AddBookComponent implements OnInit {
       }
       if (fileName) {
         label.querySelector('span').innerHTML = ' ' + fileName;
+      } else {
+        label.innerHTML = labelVal;
       }
       fileReader.onload = () => {
         this.newBookCover = fileReader.result;
