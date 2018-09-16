@@ -11,8 +11,8 @@
       <div class="col">
         <input type="text" id="newBookTitle" name="newBookTitle" class="form-control" placeholder="Title"
                ngModel required #newBookTitle="ngModel">
-        <div class="invalid-form" *ngIf="newBookTitle.invalid && !newBookTitle.pristine">
-          Please choose a title.
+        <div class="invalid-form" *ngIf="newBookTitle.invalid && newBookTitle.touched">
+          Please choose a title
         </div>
       </div>
     </div>
@@ -21,8 +21,8 @@
       <div class="col">
         <input type="text" id="newBookAuthor" #newBookAuthor="ngModel" name="newBookAuthor" class="form-control"
                placeholder="Author name" required ngModel>
-        <div class="invalid-form" *ngIf="newBookAuthor.invalid && !newBookAuthor.pristine">
-          Please choose a name.
+        <div class="invalid-form" *ngIf="newBookAuthor.invalid && newBookAuthor.touched">
+          Please choose a name
         </div>
       </div>
     </div>
@@ -35,8 +35,8 @@
         <button class="btn btn-outline-info" (click)="datePicker.toggle()" type="button">
           <fa name="calendar"></fa>
         </button>
-        <div class="invalid-form" *ngIf="newBookPublishDate.invalid && !newBookPublishDate.pristine">
-          Please choose a date.
+        <div class="invalid-form" *ngIf="newBookPublishDate.invalid && newBookPublishDate.touched">
+          Please choose a date
         </div>
       </div>
     </div>
@@ -46,19 +46,21 @@
         <!--ISBN numbers consist of 13 digits -->
         <input type="text" id="newBookId" #newBookId="ngModel" maxlength="13" name="newBookId" class="form-control"
                placeholder="ID" required ngModel>
-        <div class="invalid-form" *ngIf="newBookId.invalid && !newBookId.pristine">
-          Please choose an id.
+        <div class="invalid-form" *ngIf="newBookId.invalid && newBookId.touched">
+          Please choose an id
         </div>
       </div>
     </div>
     <div class="form-group row">
       <label for="newBookCover" class="col-sm-2 col-form-label">Cover:</label>
       <div class="col cover-input-group">
-        <input type="file" id="newBookCover" name="newBookCover" class="form-control" required>
-        <button type="button" class="btn btn-info" (click)="getBookCover()">
-          <span *ngIf="!newBookCover">Upload</span>
+        <input class="input-file" type="file" id="newBookCover" name="newBookCover" required
+               (change)="getBookCover($event)">
+        <label for="newBookCover" class="btn btn-info" [ngClass]="{'file-selected': newBookCover}">
+          <fa name="upload" *ngIf="!newBookCover"></fa>
           <fa name="check" *ngIf="newBookCover"></fa>
-        </button>
+          <span> Choose a file...</span>
+        </label>
       </div>
     </div>
   </div>

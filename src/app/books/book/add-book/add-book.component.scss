@@ -6,15 +6,23 @@
 
 .cover-input-group {
   input {
-    height: 44px;
-    padding-right: 84px;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    & + label {
+      &.file-selected {
+        color: #17a2b8;
+        background-color: #fff;
+      }
+      & * {
+        pointer-events: none;
+      }
+    }
     &.ng-invalid {
       border-left: 5px solid #dc3545;
     }
-  }
-  button {
-    position: absolute;
-    top: 3px;
-    right: 17px;
   }
 }

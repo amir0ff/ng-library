@@ -22,26 +22,35 @@ export class AddBookComponent implements OnInit {
     this.fetchBooks();
   }
 
-  getBookCover() {
-    // @ts-ignore
-    const file = document.querySelector('#newBookCover').files;
-    if (file.length > 0) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file[0]);
-      reader.onload = () => {
-        this.newBookCover = reader.result;
-        // console.log(reader.result);
-      };
-      reader.onerror = (error) => {
-        console.log('Error: ', error);
-      };
-    }
-  }
-
   fetchBooks() {
     this.bookService.getBooks().subscribe((data: Book) => {
       this.booksList = data['books'];
     });
+  }
+
+  getBookCover(event) {
+    const fileReader = new FileReader();
+    const label = event.target.nextElementSibling;
+    const [file] = event.target.files;
+    let fileName: string;
+    fileReader.readAsDataURL(file);
+
+    if (event.target.files) {
+      if (event.target.files.length === 1) {
+        fileName = event.target.value.split('\\').pop();
+      } else if (event.target.files.length > 1) {
+        fileName = (event.target.getAttribute('data-multiple-caption') || '').replace('{count}', event.target.files.length);
+      }
+      if (fileName) {
+        label.querySelector('span').innerHTML = ' ' + fileName;
+      }
+      fileReader.onload = () => {
+        this.newBookCover = fileReader.result;
+      };
+      fileReader.onerror = (error) => {
+        console.log('File upload error: ', error);
+      };
+    }
   }
 
   onSaveNewBook(bookAddForm: NgForm) {
@@ -66,9 +75,9 @@ export class AddBookComponent implements OnInit {
       this.bookService.addBook({
         id: bookAddForm.value.newBookId,
         title: formattedTitle,
+        cover: this.newBookCover,
         author: bookAddForm.value.newBookAuthor,
-        date: bookAddForm.value.newBookPublishDate,
-        cover: this.newBookCover
+        date: bookAddForm.value.newBookPublishDate
       });
     } else {
       this.showFormError = true;
