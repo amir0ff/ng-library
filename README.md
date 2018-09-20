@@ -6,7 +6,7 @@ This is a simple library web app built on Google's Angular application platform
 * Bootstrap (v4.1.3)
 * RxJS (v6.0.0)
 
-## Hosted on
+### Hosted and deployed by
 
 [![Continuous Deployment by](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/)
 
