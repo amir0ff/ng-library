@@ -6,6 +6,12 @@ This is a simple library web app built on Google's Angular application platform
 * Bootstrap (v4.1.3)
 * RxJS (v6.0.0)
 
+## Hosted on
+
+[![Continuous Deployment by](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/)
+
 [![Continuous Deployment by](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com)
 
-Live deployed app: [https://ng-library.netlify.com](https://ng-library.netlify.com)
+Netlify: [https://ng-library.netlify.com](https://ng-library.netlify.com)
+
+Heroku: [https://ng-library.netlify.com](https://ng-library.herokuapp.com/)
