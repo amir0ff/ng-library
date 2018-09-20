@@ -8,10 +8,11 @@ This is a simple library web app built on Google's Angular application platform
 
 ### Hosted and deployed by
 
-[![Continuous Deployment by](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/)
+[![Continuous Deployment by](https://www.herokucdn.com/deploy/button.svg)](https://ng-library.herokuapp.com)
 
 Heroku: [https://ng-library.herokuapp.com](https://ng-library.herokuapp.com)
 
-[![Continuous Deployment by](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com)
+
+[![Continuous Deployment by](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)]([https://ng-library.netlify.com)
 
 Netlify: [https://ng-library.netlify.com](https://ng-library.netlify.com)
