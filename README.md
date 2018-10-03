@@ -1,4 +1,5 @@
 # 📚 The Library
+[![Build Status](https://travis-ci.org/ameer157/ng-library.svg?branch=master)](https://travis-ci.org/ameer157/ng-library)
 
 This is a simple library web app built on Google's Angular application platform
 #### Technologies used:
