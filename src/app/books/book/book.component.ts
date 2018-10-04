@@ -17,6 +17,10 @@ export class BookComponent implements OnInit {
   ngOnInit() {
   }
 
+  trackByFn(index, item) {
+    return item.id; // unique id corresponding to the item
+  }
+
   onEditBook(selectedBook) {
     const editBookModalRef = this.modalService.open(EditBookComponent);
     editBookModalRef.componentInstance.book = {

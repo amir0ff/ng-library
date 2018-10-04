@@ -1,4 +1,4 @@
-<div *ngFor="let book of booksList" class="shadow card">
+<div *ngFor="let book of booksList; trackBy: trackByFn" class="shadow card">
   <img class="card-img-top" src="{{book.cover}}" alt="Book cover">
   <button type="button" title="Edit book" class="btn btn-dark" (click)="onEditBook(book)">
     <fa name="edit"></fa>

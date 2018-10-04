@@ -2,7 +2,7 @@
   "name": "ng-library",
   "version": "1.0.0",
   "scripts": {
-    "ng": "ng",
+    "serve": "ng serve",
     "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
