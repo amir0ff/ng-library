@@ -1,5 +1,5 @@
 # 📚 The Library
-[![Build Status](https://travis-ci.org/amiroff157/ng-library.svg?branch=master)](https://travis-ci.org/amiroff157/ng-library)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2a3b9145-81df-41c6-9002-77c601f5c1ad/deploy-status)](https://app.netlify.com/sites/ng-library/deploys)
 
 This is a simple library web app built on Google's Angular application platform
 #### Technologies used:
